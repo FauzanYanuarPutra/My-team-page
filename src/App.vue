@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="flex justify-center mt-20 py-5 w-full  mx-auto text-[#A9A9A9]">Created by  <a href="https://www.instagram.com/fauzanyanuarputra/" class="underline mx-1">Fauzan</a> - devChallenges.io</div>
+<div class="flex justify-center mt-20 py-5 w-full  mx-auto text-[#A9A9A9]">Created by <a href="https://www.instagram.com/fauzanyanuarputra/" class="underline mx-1">Fauzan</a> - devChallenges.io</div>
 </template>
 
 <script>
@@ -65,7 +65,6 @@ export default {
           url: "photo6.png",
           alt: "photo 6"
         },
-        // Add more images as needed
       ],
       isMobile: false
     };
@@ -73,11 +72,11 @@ export default {
   methods: {
     getGridItemClass(index) {
       if (this.isMobile) {
-        if (index === 1 || index === 3 || index === 5) {
+        if ((index + 1) % 2 === 0) {
           return "relative top-12";
         }
       } else {
-        if (index === 1 || index === 4) {
+        if ((index + 2) % 3 === 0) {
           return "relative top-12";
         }
       }
@@ -88,7 +87,7 @@ export default {
     }
   },
   mounted() {
-    this.handleResize(); // Set initial value for isMobile
+    this.handleResize(); 
     window.addEventListener("resize", this.handleResize);
   },
   beforeUnmount() {
